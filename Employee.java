@@ -6,7 +6,7 @@ public class Employee
 	{
 		System.out.println("******Welocme to Employee Wages Problem*******");
 		
-		int Is_Present=1;
+		//int Is_Present=1;
 		int Salary=0;
 		int Is_Part_Time=0;
 		int Is_Full_Time=1;
@@ -15,31 +15,27 @@ public class Employee
 		int Part_Time_Hr=4;
 		
 //Genrating Random Number
-		int EmpCheck = (int) (Math.floor(Math.random() *10 % 2));
-		int EmpCheckT = (int) (Math.floor(Math.random() *10 % 2));
-//Checking Employee And Caluclating Wages
-		if (EmpCheck == Is_Present)
+		int EmpCheck = (int) (Math.floor(Math.random() *10 % 3));
+//Checking Employee And Caluclating Wages Using Case
+		
+		switch(EmpCheck)
 		{
-			if (EmpCheckT == Is_Full_Time)
-			{
+			case 1:
 				Salary=EmpHrs*EmpRate_Hour;
 				System.out.println("Employee Is Present and Salary is: " +Salary);
-				
-			}
-							
-			else
-			{
+			break;
+			
+			case 2:
 				Is_Part_Time=EmpRate_Hour*Part_Time_Hr;
 				System.out.println("Employee Is Present and Salary is: " +Is_Part_Time);
-					
-			} //Else Block Over
+			break;
+			
+			default:
+				System.out.println("Employee is Absent and Salary is: " +Salary);
+			break;
+			
+		}	//Switch Case
 		
-		}
-		else
-		{
-			System.out.println("Employee Is Absent & Salary is :" +Salary);
-		}
-
 	} //Public
 
 }// MAin Class
