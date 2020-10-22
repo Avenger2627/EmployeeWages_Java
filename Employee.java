@@ -7,12 +7,10 @@ public class Employee
 		System.out.println("******Welocme to Employee Wages Problem*******");
 		
 		//int Is_Present=1;
-		int Salary=0;
-		int Is_Part_Time=0;
-		int Is_Full_Time=1;
-		int EmpRate_Hour=20;
-		int EmpHrs=8;
-		int Part_Time_Hr=4;
+		int isFullTime = 1;
+		int perHour = 20;
+		int FullDayHour = 8;
+		int WorkingDayMonth = 20;
 		
 //Genrating Random Number
 		int EmpCheck = (int) (Math.floor(Math.random() *10 % 3));
@@ -21,17 +19,17 @@ public class Employee
 		switch(EmpCheck)
 		{
 			case 1:
-				Salary=EmpHrs*EmpRate_Hour;
-				System.out.println("Employee Is Present and Salary is: " +Salary);
+			System.out.println("FullTime_Employee_Wages_Monthly");
+			int FullTimeWages = perHour * (FullDayHour * WorkingDayMonth);
+			System.out.println("Full_Time_Wages_for " + WorkingDayMonth + " days : " + FullTimeWages + " Rs.");
 			break;
-			
-			case 2:
-				Is_Part_Time=EmpRate_Hour*Part_Time_Hr;
-				System.out.println("Employee Is Present and Salary is: " +Is_Part_Time);
+		case 2:
+			System.out.println("PartTime_Employee_Wages_Monthly");
+			int partTimeWages = (WorkingDayMonth * (FullDayHour / 2)) * perHour;
+			System.out.println("PartTime_Wages_for " + WorkingDayMonth + " days : " + partTimeWages + " Rs.");
 			break;
-			
-			default:
-				System.out.println("Employee is Absent and Salary is: " +Salary);
+		default:
+			System.out.println("Employee is Absent..!!!!");
 			break;
 			
 		}	//Switch Case
