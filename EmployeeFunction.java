@@ -1,62 +1,39 @@
 package com.Employee;
 
-public class EmployeeFunction 
-{
+import java.util.Random;
+import java.util.Scanner;
 
-	int Is_Present=1;
-	int Salary=0;
-	int Is_Part_Time=0;
-	int Is_Full_Time=1;
-	int EmpRate_Hour=20;
-	int EmpHrs=8;
-	int Part_Time_Hr=4;
+public class EmployeeFunction {
 
-	int EmpCheck = (int) (Math.floor(Math.random() *10 % 2));
-	public static void main(String[] args)
-	{
-		System.out.println("******Welocme to Employee Wages Problem*******");		
+	public static final int Is_Full_Time = 1;
+	public static final int Is_Part_Time = 0;
+	public static final int EmpRate_Hour = 20;
+	public static final int EmpHrs = 8;
+	static Scanner in = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		System.out.println("---------Employee_Wages-----------");
+		
 		EmployeeFunction emp = new EmployeeFunction();
-	//Creating Object
-		emp.EmpCheck();
-		emp.EmpDailyWages();	
+		emp.CalEmployeeFunction();
 	}
-	
-	public void EmpCheck() // Use Case 1
-	{	
-		if (EmpCheck == Is_Present)
-		{
-			if (EmpCheck == Is_Full_Time)
-			{
-				Salary=EmpHrs*EmpRate_Hour;
-				System.out.println("Employee Is Present and Salary is: " +Salary);
-			}
-							
-			else
-			{
-				Is_Part_Time=EmpRate_Hour*Part_Time_Hr;
-				System.out.println("Employee Is Present and Salary is: " +Is_Part_Time);
-					
-			} //Else Block Over
-		}
-		else
-		{
-			System.out.println("Employee Is Absent & Salary is :" +Salary);
-		}
-	}//C1
-	
-	public void EmpDailyWages()//Use CAse 2
-	{
-			if (EmpCheck==Is_Full_Time)
-			{
-				
-				Salary=(EmpHrs*EmpRate_Hour);
-				System.out.println("Employee Is Present and Salary is: " +Salary);
-					
-			}
-			else
-			{
-				System.out.println("Employee Is Not Present and Salary is :" +Salary);		
-			} //Else Block Over
-		}//2
 
-}//Class
+	public void CalEmployeeFunction() {
+		Random rn = new Random();
+		int rand = rn.nextInt(2);
+		if (rand == Is_Full_Time) {
+			System.out.println("Enter fullTimeDays Employee Worked : ");
+			int day = in.nextInt();
+			int TotalWages = EmpRate_Hour * (EmpHrs * day);
+			System.out.println("Total_Salary for " + day + " days : " + TotalWages + " Rs.");
+		} 
+		else if(rand == Is_Part_Time) {
+			System.out.println("Enter partTimeDays Employee Worked : ");
+			int day = in.nextInt();
+			int TotalWages = EmpRate_Hour * ((EmpHrs/2) * day);
+			System.out.println("Total_Salary for " + day + " days : " + TotalWages + " Rs.");
+		}else
+			System.out.println("Employee is Absent & Salary is 0..!!!");
+		in.close();
+	}
+}
